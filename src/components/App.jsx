@@ -54,8 +54,7 @@ export const App = () => {
       <Phonebook></Phonebook>
       {contacts.length > 0 && <h2>Contacts</h2>}
       {contacts.length > 0 && <Filter />}
-
-      <Contacts></Contacts>
+      {contacts.length > 0 && <Contacts />}
     </div>
   );
 };

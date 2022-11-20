@@ -10,12 +10,10 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { addContacts } from 'redax/contactSlice';
 
-export const Phonebook = ({ onSubmitForm }) => {
-  const sliceContacts = useSelector(state => state.contacts);
+export const Phonebook = () => {
+  const contacts = useSelector(state => state.contacts);
 
   const dispatch = useDispatch();
-
-  console.log(sliceContacts);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -38,6 +36,12 @@ export const Phonebook = ({ onSubmitForm }) => {
   const onSubmit = e => {
     // const numberContact = { name, number };
     e.preventDefault();
+    for (const element of contacts) {
+      if (element.name.toLowerCase() === name.toLowerCase()) {
+        alert(`${element.name} is alrady in contacts`);
+        return;
+      }
+    }
     dispatch(addContacts(name, number));
     setName('');
     setNumber('');

@@ -6,7 +6,7 @@ import { deleteContacts } from 'redax/contactSlice';
 export const Contacts = () => {
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filters);
-  // console.log(filter);
+  console.log('contacts:', filter);
   const dispatch = useDispatch();
 
   const handeleDelete = id => {
