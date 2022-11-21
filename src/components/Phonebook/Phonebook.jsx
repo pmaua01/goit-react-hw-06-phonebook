@@ -42,7 +42,7 @@ export const Phonebook = () => {
         return;
       }
     }
-    dispatch(addContacts(name, number));
+    dispatch(addContacts({ name, number }));
     setName('');
     setNumber('');
   };
